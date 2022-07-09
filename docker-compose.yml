@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+  zero:
+    image: dgraph/dgraph:v21.12.0
+    ports:
+      - 5080:5080
+      - 6080:6080
+    restart: on-failure
+    command: dgraph zero --my=zero:5080
+    networks:
+      - infra
+  alpha:
+    image: dgraph/dgraph:v21.12.0
+    ports:
+      - 8080:8080
+      - 9080:9080
+    restart: on-failure
+    command: dgraph alpha --my=alpha:7080 --security "whitelist=10.0.0.0/8,172.0.0.0/8,192.168.0.0/16" --zero=zero:5080
+    networks:
+      - infra
+  ratel:
+    image: dgraph/ratel:v21.12.0
+    ports:
+      - 8000:8000
+    command: dgraph-ratel
+networks:
+  infra:
+    driver: bridge    

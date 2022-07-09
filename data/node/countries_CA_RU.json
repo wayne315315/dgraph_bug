@@ -1,0 +1,14 @@
+[
+  {
+    "uid": "_:Country:RU",
+    "xid": "_:Country:RU",
+    "id": "RU",
+    "dgraph.type": "Country"
+  },
+  {
+    "uid": "_:Country:CA",
+    "xid": "_:Country:CA",
+    "id": "CA",
+    "dgraph.type": "Country"
+  }
+]

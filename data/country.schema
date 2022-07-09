@@ -1,0 +1,12 @@
+id: string @index(exact, term, trigram, fulltext)  .
+xid: string @index(hash)  .
+name: [string] @index(exact, term, trigram, fulltext) @count .
+country.iso1_alpha2: [string] @index(exact, term, trigram, fulltext) @count .
+country.location: [geo] @index(geo) @count .
+type Country {
+    id
+    xid
+    name
+    country.iso1_alpha2
+    country.location
+}
